@@ -3,8 +3,16 @@ package hello.core.member;
 public class MemberServiceImpl implements MemberService{
 	
 	
-	//추상화에도 의존하고.. (인터페이스) , 구체화에도 의존하고있다 DIP 원칙 어긋남
-	private MemberRepository memberRepository = new MemoryMemberRepository();
+	
+	/*
+	 * 이제 완벽히 추상화에만 의존하게 됐다.
+	 */
+	
+	private final MemberRepository memberRepository;
+	
+	public MemberServiceImpl(MemberRepository memberRepository) {
+		this.memberRepository = memberRepository;
+	}
 
 	
 	//"다형성" 덕분에 MemoryMemberRepository가 호출 된다.
