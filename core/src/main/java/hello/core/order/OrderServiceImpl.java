@@ -1,9 +1,13 @@
 package hello.core.order;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
 	
@@ -22,11 +26,12 @@ public class OrderServiceImpl implements OrderService {
 	 * FixDiscountPolicy가 들어올지, RateDiscountPolicy 들어올지 모른다 왜냐? 추상화에 의존하고 있기때문,,,
 	 */
 	
+	
 	private final MemberRepository memberRepository;
 	private final DiscountPolicy discountPolicy;
 	
 	
-	
+	@Autowired
 	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
 		this.memberRepository = memberRepository;
 		this.discountPolicy = discountPolicy;
@@ -41,6 +46,12 @@ public class OrderServiceImpl implements OrderService {
 		int discountPrice = discountPolicy.discount(member, itemPrice);
 		
 		return new Order(memberId, itemName, itemPrice, discountPrice);
+	}
+	
+	
+	//테스트 용도
+	public MemberRepository  getMemberRepository() {
+		return memberRepository;
 	}
 
 }

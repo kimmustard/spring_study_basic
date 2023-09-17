@@ -26,19 +26,37 @@ public class AppConfig {
 	 */
 
 	
-	//리팩토링을 하니 각 역할이 제대로 보인다.
+	//@Bean memberService -> new MemoryMemberRepository()
+	//@Bean orderService -> new MemoryMemberRepository() ? 이러면 싱글톤이 깨지는것이 아닌가???
+	
+	//결과적으로 memberRepository는 3번 호출 되어야한다.
+	//call AppConfig.memberService
+	//call AppConfig.memberRepository
+	//call AppConfig.memberRepository
+	//call AppConfig.orderService
+	//call AppConfig.memberRepository
+	
+	//하지만? 의도와는 다르게
+	//call AppConfig.memberService
+	//call AppConfig.memberRepository
+	//call AppConfig.orderService
+	
+	
 	@Bean
 	public MemberService memberService() {
+		System.out.println("call AppConfig.memberService");
 		return new MemberServiceImpl(memberRepository());
 	}
 	
-	@Bean
+	@Bean  
 	public MemoryMemberRepository memberRepository() {
+		System.out.println("call AppConfig.memberRepository");
 		return new MemoryMemberRepository();
 	}
 	
 	@Bean	
 	public OrderService orderService() {
+		System.out.println("call AppConfig.orderService");
 		return new OrderServiceImpl(memberRepository(), discountPolicy());
 	}
 	

@@ -1,8 +1,10 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService{
-	
-	
 	
 	/*
 	 * 이제 완벽히 추상화에만 의존하게 됐다.
@@ -10,6 +12,9 @@ public class MemberServiceImpl implements MemberService{
 	
 	private final MemberRepository memberRepository;
 	
+	//@Autowired 는
+	//ac.getBean(MemberRepository.class) 라는 코드가 자동으로 들어가는 느낌이라생각하자.
+	@Autowired 
 	public MemberServiceImpl(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}
@@ -26,4 +31,10 @@ public class MemberServiceImpl implements MemberService{
 		return memberRepository.findById(memberId);
 	}
 
+	
+	//테스트용
+	public MemberRepository getMemberRepository() {
+		return memberRepository;
+	}
+	
 }

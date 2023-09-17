@@ -1,0 +1,24 @@
+package hello.core;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
+
+/*
+ * @Component 애노테이션이 붙은 클래스를 찾아서 자동으로 스프링빈으로 등록해준다.
+ *
+ */
+
+@Configuration
+@ComponentScan(
+		//이렇게하면 member만 컴포넌트 스캔 대상이된다. ("지정한곳"부터 하위패키지까지 쭉 찾는다)
+		basePackages = "hello.core.member",
+		//excludeFilters 모든 빈을 스캔하면서 제외할(필터) 명단
+		//Configuration도 자동스캔 대상이라 제외를 하지않으면? 이중으로 스캔하기때문에 충돌이 일어난다.
+		excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
+		)
+public class AutoAppConfig {
+	
+	
+	
+}
