@@ -12,10 +12,7 @@ import hello.core.member.Member;
 
 public class AutowiredTest {
 
-	
-	
-	
-	
+
 	
 	
 	@Test
@@ -23,9 +20,7 @@ public class AutowiredTest {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(TestBean.class);
 		
 	}
-	
-	
-	
+
 	
 	static class TestBean{
 		
