@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ import hello.springmvc.basic.HelloData;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+//@Controller
 @RestController
 public class ReponseBodyController {
 	
@@ -28,6 +30,7 @@ public class ReponseBodyController {
 		return new ResponseEntity<>("ok", HttpStatus.OK);
 	}
 	
+	//@ResponseBody
 	@GetMapping("/response-body-string-v3")
 	public String responseBodyV3() {
 		return "ok";
@@ -46,6 +49,7 @@ public class ReponseBodyController {
 	//이 방식을 자주 쓴다.
 	//애노테이션 방식이기 때문에 에러코드가 정적일 수 밖에 없다.
 	@ResponseStatus(HttpStatus.OK)
+	//@ResponseBody
 	@GetMapping("/response-body-json-v2")
 	public HelloData responseBodyJsonV2() {
 		HelloData helloData = new HelloData();

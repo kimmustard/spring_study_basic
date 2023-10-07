@@ -11,9 +11,9 @@ public class ResponseViewController {
 	@RequestMapping("/response-view-v1")
 	public ModelAndView responseViewV1() {
 		ModelAndView mav = new ModelAndView("response/hello").addObject("data", "hello!");
-		
 		return mav;
 	}
+	
 	
 
 	@RequestMapping("/response-view-v2")
@@ -25,8 +25,7 @@ public class ResponseViewController {
 
 	@RequestMapping("/response/hello")
 	public void responseViewV3(Model model) {
-		model.addAttribute("data", "hello!");
-		
+		model.addAttribute("data", "hello!");	
 	}
 	
 }
