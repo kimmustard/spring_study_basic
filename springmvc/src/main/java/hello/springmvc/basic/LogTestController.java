@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @RestController
+@Slf4j
 public class LogTestController {
 
 //	private final Logger log = LoggerFactory.getLogger(LogTestController.class);
