@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 @Component
-//타겟이 클래스면 TARGET_CLASS , 인터페이스면 TARGET_INTERFACE
+//타겟이 클래스면 TARGET_CLASS , 인터페이스면 TARGET_INTERFACE 
 @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS )
 public class MyLogger {
 	

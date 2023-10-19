@@ -24,7 +24,7 @@ public class LogDemoController {
 	@ResponseBody
 	public String logDemo(HttpServletRequest request) {
 		String requestURL = request.getRequestURL().toString(); 
-		
+		 
 		myLogger.setRequestURL(requestURL);
 		
 		

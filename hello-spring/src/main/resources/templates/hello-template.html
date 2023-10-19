@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf,org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- 중간에 있는 "hello empty"는 서버없이 그냥 html을 만들어서 그냥 볼 때  -->
+<!-- 실제 서버를 켜서 보면 안보임 -->
+<p th:text="'hello '+${name}">hello empty</p>
+</body>
+</html>

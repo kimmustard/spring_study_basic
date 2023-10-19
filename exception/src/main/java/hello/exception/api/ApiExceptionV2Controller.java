@@ -20,26 +20,6 @@ public class ApiExceptionV2Controller {
 	
 	//항상 스프링의 우선순위는 자세한것이 우선권을 가진다. 부모클래스 자식클래스도 마찬가지 
 	
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	@ExceptionHandler(IllegalArgumentException.class)
-	public ErrorResult illegalExHandler(IllegalArgumentException e) {
-		log.error("[exceptionHanlder] ex", e);
-		return new ErrorResult("BAD", e.getMessage());
-	}
-	
-	@ExceptionHandler
-	public ResponseEntity<ErrorResult> userExHandler(UserException e){
-		log.error("[exceptionHanlder] ex", e);
-		ErrorResult errorResult = new ErrorResult("USER-EX", e.getMessage());
-		return new ResponseEntity<>(errorResult, HttpStatus.BAD_REQUEST);
-	}
-	
-	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	@ExceptionHandler
-	public ErrorResult exHandler(Exception e) {
-		log.error("[exceptionHandler] ex", e);
-		return new ErrorResult("EX", "내부오류");
-	}
 	
 	
 	@GetMapping("/api2/members/{id}")
