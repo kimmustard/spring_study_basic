@@ -56,7 +56,7 @@ public class MemberRepositoryV1 {
 	}
 	
 	
-	public Member findById(String memberId) throws Exception {
+	public Member findById(String memberId) throws SQLException {
 		
 		String sql = "select * from member where member_id = ?";
 		
