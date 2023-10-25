@@ -12,7 +12,7 @@ public class DBConnectionUtil {
 	public static Connection getConnection() {
 		try {
 			Connection connection = 
-					DriverManager.getConnection("jdbc:mysql://localhost:3306/springtoy", "springUser", "mysql");
+					DriverManager.getConnection(ConnectionConst.URL, ConnectionConst.USERNAME, ConnectionConst.PASSWORD);
 			log.info("get connection = {}, class= {}", connection, connection.getClass());
 			return connection;
 			
