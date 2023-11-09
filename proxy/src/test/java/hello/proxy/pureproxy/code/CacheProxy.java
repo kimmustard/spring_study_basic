@@ -23,6 +23,4 @@ public class CacheProxy implements Subject{
 		return cacheValue;
 	}
 	
-	
-
 }
