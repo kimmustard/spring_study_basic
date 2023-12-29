@@ -32,7 +32,7 @@ public class ProxyFactoryConfigV2 {
 		
 	}
 	
-	@Bean
+	@Bean 
 	public OrderServiceV2 orderServiceV2(LogTrace logTrace) {
 		
 		OrderServiceV2 orderService = new OrderServiceV2(orderRepositoryV2(logTrace));
